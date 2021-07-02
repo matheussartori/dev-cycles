@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import Head from 'next/head'
 import Router from 'next/router'
 import { GetServerSideProps } from 'next'
 
@@ -37,9 +36,6 @@ export default function Timer(props: TimerProps) {
       <div className={styles.container}>
         <Menu />
         <div className={styles.content}>
-          <Head>
-            <title>Início | DevCycles</title>
-          </Head>
           <ExperienceBar />
 
           <section>
