@@ -11,6 +11,7 @@ export function Countdown() {
   const {
     minutes,
     seconds,
+    progress,
     hasFinished,
     isActive,
     startCountdown,
@@ -47,13 +48,18 @@ export function Countdown() {
       ) : (
           <>
             { isActive ? (
-              <button
-                type="button"
-                className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
-                onClick={resetCountdown}
-              >
-                Abandon cycle <AiOutlineClose />
-              </button>
+              <>
+                <button
+                  type="button"
+                  className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
+                  onClick={resetCountdown}
+                >
+                  Abandon cycle <AiOutlineClose />
+                </button>
+                <div className={styles.barRemainingTime}>
+                  <div className={styles.barCompletedTime} style={{ width: `${progress}%` }}></div>
+                </div>
+              </>
             ) : (
                 <button
                   type="button"

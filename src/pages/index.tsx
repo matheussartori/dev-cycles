@@ -8,13 +8,13 @@ import styles from '../styles/pages/Home.module.css'
 export default function Home() {
   const [login, setLogin] = useState('')
 
-  const { user, signIn } = useAuth()
+  const { signIn } = useAuth()
 
   useEffect(() => {
     if (localStorage.getItem('@move-it/user')) {
       Router.push('/timer')
     }
-  }, [])
+  }, [signIn])
 
   return (
     <div className={styles.container}>

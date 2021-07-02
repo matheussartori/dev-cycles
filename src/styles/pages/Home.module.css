@@ -54,7 +54,7 @@
 .container footer input {
   height: 80px;
   background: linear-gradient(to right, rgb(73, 83, 184) 0%, rgba(73, 83, 184, 0.2) 100%);
-  border: 0;
+  border: 1.5px solid transparent;
   padding-left: 1rem;
 
   border-top-left-radius: 5px;
@@ -66,6 +66,11 @@
 
 .container footer input:focus {
   outline: none;
+}
+
+.container footer input:hover {
+  outline: none;
+  border: 1.5px solid var(--blue-feature);
 }
 
 .container footer input::placeholder {
