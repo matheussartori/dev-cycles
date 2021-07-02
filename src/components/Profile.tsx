@@ -1,15 +1,17 @@
 import { useContext } from 'react'
 import { ChallengesContext } from '../contexts/ChallengesContext'
+import { useAuth } from '../hooks/useAuth'
 import styles from '../styles/components/Profile.module.css'
 
 export function Profile() {
+  const { user } = useAuth()
   const { level } = useContext(ChallengesContext)
 
   return (
     <div className={styles.profileContainer}>
-      <img src="https://github.com/matheussartori.png" alt="Matheus Sartori"/>
+      <img src={user?.avatar_url} alt={user?.name}/>
       <div>
-        <strong>Matheus Sartori</strong>
+        <strong>{user?.name}</strong>
         <p>
           <img src="icons/level.svg" alt="Level" />
           Level {level}

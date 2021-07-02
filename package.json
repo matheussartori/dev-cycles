@@ -1,7 +1,11 @@
 {
-  "name": "devcycles-next",
-  "version": "0.1.0",
-  "private": true,
+  "name": "move-it",
+  "description": "Application that uses the pomodoro technique to pause the development cycles, while there are exercises to keep us away from health problems by staying too long at the computer.",
+  "author": {
+    "name": "Matheus Sartori",
+    "email": "ms.sartori@outlook.com.br"
+  },
+  "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,10 +15,12 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "axios": "^0.21.1",
     "js-cookie": "^2.2.1",
     "next": "10.0.7",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-icons": "^4.2.0"
   },
   "devDependencies": {
     "@types/js-cookie": "^2.2.6",

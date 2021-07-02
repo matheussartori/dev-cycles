@@ -11,8 +11,8 @@ export function LevelUpModal() {
       <div className={styles.container}>
         <header>{level}</header>
 
-        <strong>Parabéns!</strong>
-        <p>Você alcançou um novo level.</p>
+        <strong>Congratulations!</strong>
+        <p>You just reached a new level.</p>
 
         <button
           type="button"

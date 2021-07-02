@@ -1,60 +1,46 @@
-import Head from 'next/head'
-import { GetServerSideProps } from 'next'
+import { useState, useEffect } from "react"
+import Router from 'next/router'
 
-import { ChallengeBox } from '../components/ChallengeBox'
-import { CompletedChallenges } from '../components/CompletedChallenges'
-import { Countdown } from '../components/Countdown'
-import { ExperienceBar } from '../components/ExperienceBar'
-import { Profile } from '../components/Profile'
-import { CountdownProvider } from '../contexts/CountdownContext'
-import { ChallengesProvider } from '../contexts/ChallengesContext'
+import { useAuth } from "../hooks/useAuth"
 
 import styles from '../styles/pages/Home.module.css'
 
-interface HomeProps {
-  level: number,
-  currentExperience: number,
-  challengesCompleted: number
-}
+export default function Home() {
+  const [login, setLogin] = useState('')
 
-export default function Home(props: HomeProps) {
-  return (
-    <ChallengesProvider
-      level={props.level}
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}
-    >
-      <div className={styles.container}>
-        <Head>
-          <title>Início | DevCycles</title>
-        </Head>
-        <ExperienceBar />
+  const { user, signIn } = useAuth()
 
-        <section>
-          <CountdownProvider>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </div>
-            <div>
-              <ChallengeBox />
-            </div>
-          </CountdownProvider>
-        </section>
-      </div>
-    </ChallengesProvider>
-  )
-}
-
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { level, currentExperience, challengesCompleted } = ctx.req.cookies
-
-  return {
-    props: {
-      level: Number(level),
-      currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted)
+  useEffect(() => {
+    if (localStorage.getItem('@move-it/user')) {
+      Router.push('/timer')
     }
-  }
+  }, [])
+
+  return (
+    <div className={styles.container}>
+      <aside />
+      <section>
+        <img src="/logo.svg" alt="Move.it" />
+
+        <h1>Welcome</h1>
+
+        <div>
+          <img src="/icons/github.svg" alt="GitHub login" />
+          <p>Sign in with GitHub to start</p>
+        </div>
+
+        <footer>
+          <input
+            type="text"
+            value={login}
+            onChange={event => setLogin(event.target.value)}
+            placeholder="Enter your username"
+          />
+          <button className={login.length && styles.buttonWithContent} onClick={() => signIn(login)}>
+            <img src="/icons/arrow-right.svg" alt="Sign in" />
+          </button>
+        </footer>
+      </section>
+    </div>
+  )
 }

@@ -1,16 +1,93 @@
 .container {
-  height: 100vh;
-  max-width: 992px;
-  margin: 0 auto;
-  padding: 2.5rem 2rem;
+  background: var(--blue);
+  
   display: flex;
-  flex-direction: column;
+  align-items: stretch;
+  height: 100vh;
+}
+
+.container aside {
+  flex: 1;
+  background: url('/login-background.svg') no-repeat;
+  background-size: contain;
 }
 
 .container section {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6.25rem;
-  align-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 700px;
+}
+
+.container h1 {
+  margin-top: 5rem;
+  color: var(--white);
+  font: 600 2rem 'Inter', sans-serif;
+}
+
+.container div {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.container div img {
+  margin-right: 1.5rem;
+}
+
+.container div p {
+  font: 500 1rem 'Inter', sans-serif;
+  color: var(--text-highlight);
+}
+
+.container footer {
+  margin-top: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container footer input {
+  height: 80px;
+  background: linear-gradient(to right, rgb(73, 83, 184) 0%, rgba(73, 83, 184, 0.2) 100%);
+  border: 0;
+  padding-left: 1rem;
+
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+  color: var(--white);
+  font: 400 1rem 'Inter', sans-serif;
+}
+
+.container footer input:focus {
+  outline: none;
+}
+
+.container footer input::placeholder {
+  color: var(--text-highlight);
+}
+
+.container footer button {
+  height: 80px;
+  width: 80px;
+  background-color: var(--blue-dark);
+  border: 0;
+  transition: filter 0.1s;
+  transition: background-color 0.1s;
+
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.container footer button:hover {
+  filter: brightness(0.9);
+}
+
+.buttonWithContent {
+  background-color: var(--green) !important;
 }

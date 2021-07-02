@@ -51,6 +51,11 @@
   transition: background-color 0.2s;
 }
 
+.countdownButton svg,
+.countdownButtonActive svg {
+  margin-left: 1rem;
+}
+
 .countdownButton:not(:disabled):hover {
   background: var(--blue-dark)
 }
@@ -76,4 +81,8 @@
   color: var(--green);
   font-size: 1rem;
   margin-left: 0.75rem;
+}
+
+.countdownButton img {
+  margin-left: 1rem;
 }

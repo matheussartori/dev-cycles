@@ -1,12 +1,11 @@
-import { useState, useEffect, useContext } from 'react'
+import { useContext } from 'react'
 
 import styles from '../styles/components/Countdown.module.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+import { AiOutlineClose } from 'react-icons/ai'
 import { CountdownContext } from '../contexts/CountdownContext'
-
-let countdownTimeout: NodeJS.Timeout
 
 export function Countdown() {
   const {
@@ -42,7 +41,7 @@ export function Countdown() {
           disabled
           className={styles.countdownButton}
         >
-          Ciclo encerrado
+          Cycle ended
           <FontAwesomeIcon icon={faCheckCircle} />
         </button>
       ) : (
@@ -53,7 +52,7 @@ export function Countdown() {
                 className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
                 onClick={resetCountdown}
               >
-                Abandonar ciclo
+                Abandon cycle <AiOutlineClose />
               </button>
             ) : (
                 <button
@@ -61,7 +60,7 @@ export function Countdown() {
                   className={styles.countdownButton}
                   onClick={startCountdown}
                 >
-                  Iniciar um ciclo
+                  Start a cycle <img src="/icons/start.svg" alt="Start a cycle" />
                 </button>
               )}
           </>
